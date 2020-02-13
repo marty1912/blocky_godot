@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gameObjects/Brick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gameObjects/AmplitudeController.tscn" type="PackedScene" id=2]
+
+[node name="ShaderTut" type="Node2D"]
+
+[node name="Brick" parent="." instance=ExtResource( 1 )]
+position = Vector2( 112, 56 )
+
+[node name="AmplitudeController" parent="." instance=ExtResource( 2 )]
+margin_left = 96.0
+margin_top = 88.0
+margin_right = 136.0
+margin_bottom = 128.0
+[connection signal="amplitude_changed" from="AmplitudeController" to="Brick" method="_on_AmplitudeController_amplitude_changed"]
