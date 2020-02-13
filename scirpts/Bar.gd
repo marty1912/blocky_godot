@@ -8,6 +8,7 @@ var motion = Vector2()
 const MAXSPEED = 500
 const speed = 30
 const cutoff = 5
+const ball_scene = preload("res://gameObjects/Ball.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,3 +36,11 @@ func _physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		var ball = ball_scene.instance()
+		var ball_position = get_node("Anchor").get_global_position() - Vector2(0,32)
+		ball.position.x = ball_position.x
+		ball.position.y = ball_position.y
+		get_tree().get_root().add_child(ball)
+		
