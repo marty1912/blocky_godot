@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://textures/Bar.png" type="Texture" id=1]
+[ext_resource path="res://textures/Ball.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 8 )
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.0
+
+[node name="World" type="Node2D"]
+
+[node name="Bar" type="KinematicBody2D" parent="."]
+position = Vector2( 480, 560 )
+
+[node name="Sprite" type="Sprite" parent="Bar"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="Bar"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2( 480, 536 )
+physics_material_override = SubResource( 3 )
+gravity_scale = 0.0
+linear_velocity = Vector2( 200, -200 )
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="Sprite" type="Sprite" parent="Ball"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( 0, 608, 0, 0, 1024, 0, 1024, 608, 1088, 608, 1088, -32, -64, -32, -64, 608 )
