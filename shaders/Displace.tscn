@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://shaders/holo_overlay.shader" type="Shader" id=1]
+[ext_resource path="res://textures/displace_internet.jpg" type="Texture" id=2]
+[ext_resource path="res://textures/holo_lines.png" type="Texture" id=3]
+[ext_resource path="res://scirpts/Displace.gd" type="Script" id=4]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/displace_amt = 0.002
+shader_param/displace_size = 0.187
+shader_param/abberation_amt_x = 0.0
+shader_param/abberation_amt_y = 0.0
+shader_param/brightness = 0.051
+shader_param/lines_size = 0.502
+shader_param/displace_image = ExtResource( 2 )
+shader_param/holo_lines = ExtResource( 3 )
+
+[node name="Displace" type="ColorRect"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.972549, 0.933333, 0.933333, 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}

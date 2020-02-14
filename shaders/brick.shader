@@ -1,20 +1,15 @@
 shader_type canvas_item;
 
-// export
-uniform float time_factor = 1.0;
+uniform float motion_factor : hint_range(0.00,0.05);
 
-uniform vec2 amplitude = vec2(10.0,10.0);
-
-uniform float motion_factor = 0.05;
-
+uniform float random_offset : hint_range(0.0,3.0);
 
 
 void fragment(){
-	//tiled_uvs.y *= aspect_ratio;
-	//texture(TEXTURE, tiled_uvs);
+	
 	vec2 waves_uv_offset;
-	waves_uv_offset.x = cos(TIME) * motion_factor;
-	waves_uv_offset.y = sin(TIME) * motion_factor;
+	waves_uv_offset.x = cos(TIME+random_offset) * motion_factor;
+	waves_uv_offset.y = sin(TIME+random_offset) * motion_factor;
 	
 	COLOR = texture(TEXTURE, UV + waves_uv_offset);
 	
@@ -22,10 +17,5 @@ void fragment(){
 	//COLOR = vec4(tiled_uvs,0.0,1.0);
 	}
 	
-void vertex(){
-	//VERTEX.x += cos(TIME*time_factor + VERTEX.x+VERTEX.y) * amplitude.x;
-	//VERTEX.y += sin(TIME*time_factor + VERTEX.x+VERTEX.y) * amplitude.y;
-	
-	
-	}
+
 	

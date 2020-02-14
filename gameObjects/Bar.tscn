@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scirpts/Bar.gd" type="Script" id=1]
+[ext_resource path="res://shaders/hologram.shader" type="Shader" id=2]
+[ext_resource path="res://textures/displace_internet.jpg" type="Texture" id=3]
+[ext_resource path="res://textures/holo_lines.png" type="Texture" id=4]
+[ext_resource path="res://textures/Bar.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+shader_param/displace_amt = 0.003
+shader_param/displace_size = 0.359
+shader_param/abberation_amt_x = 0.015
+shader_param/abberation_amt_y = 0.018
+shader_param/brightness = 0.041
+shader_param/lines_size = 0.255
+shader_param/alpha = 0.85
+shader_param/displace_image = ExtResource( 3 )
+shader_param/holo_lines = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 8 )
+
+[node name="Bar" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Anchor" type="Position2D" parent="."]
+position = Vector2( 0, 16 )
+__meta__ = {
+"_edit_lock_": true
+}
