@@ -5,6 +5,7 @@ export var SPEEDUP = 50
 const MAXSPEED = 500
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("/root/World").ball_add()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,7 +32,7 @@ func _process(delta):
 			
 			
 	if get_node("Anchor").get_global_position().y > get_viewport_rect().end.y:
-		print("game over")
+		get_node("/root/World").ball_leave()
 		queue_free()
 		
 	pass

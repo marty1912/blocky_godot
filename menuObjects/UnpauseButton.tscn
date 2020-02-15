@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menuObjects/MenuButton.tscn" type="PackedScene" id=1]
+
+[node name="UnpauseButton" instance=ExtResource( 1 )]
+scene_to_load = "unpause"
+
+[node name="ButtonText" parent="." index="0"]
+text = "CONTINUE"
+[connection signal="pressed" from="." to="." method="_on_StartButton_pressed"]
