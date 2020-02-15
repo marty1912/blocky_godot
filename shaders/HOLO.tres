@@ -5,15 +5,17 @@
 [ext_resource path="res://textures/holo_lines.png" type="Texture" id=3]
 
 [resource]
+resource_local_to_scene = true
 shader = ExtResource( 1 )
 shader_param/dissolve_val = 1.0
-shader_param/displace_amt = 0.008
-shader_param/displace_size = 0.195
-shader_param/abberation_amt_x = 0.007
-shader_param/abberation_amt_y = 0.005
-shader_param/color = Color( 0.552941, 0.239216, 0.380392, 1 )
-shader_param/brightness = 0.391
-shader_param/lines_size = 1.0
-shader_param/alpha = 0.983
+shader_param/displace_amt = 0.04
+shader_param/displace_size = 0.359
+shader_param/abberation_amt_x = 0.035
+shader_param/abberation_amt_y = 0.035
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/brightness = 0.11
+shader_param/lines_size = 0.255
+shader_param/alpha = 0.85
 shader_param/displace_image = ExtResource( 2 )
 shader_param/holo_lines = ExtResource( 3 )
+shader_param/dissolve_img = ExtResource( 3 )

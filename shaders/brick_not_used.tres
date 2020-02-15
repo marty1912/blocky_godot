@@ -1,22 +1,28 @@
-shader_type canvas_item;
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
 
+[ext_resource path="res://textures/displace_internet.jpg" type="Texture" id=1]
+[ext_resource path="res://textures/holo_lines.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+render_mode unshaded;
 
 
 uniform sampler2D displace_image : hint_albedo;
 uniform sampler2D holo_lines : hint_albedo;
 uniform sampler2D dissolve_img : hint_albedo;
 
-uniform float dissolve_val : hint_range(0,1.0);
+uniform float dissolve_val =1;
 
-uniform float displace_amt : hint_range(0,0.05);
-uniform float displace_size : hint_range(0,1.0);
-uniform float abberation_amt_x : hint_range(0,0.01);
-uniform float abberation_amt_y : hint_range(0,0.01);
-uniform vec4 color : hint_color;
+uniform float displace_amt = 0.04 ;
+uniform float displace_size =  0.359;
+uniform float abberation_amt_x =0.035;
+uniform float abberation_amt_y =0.035;
 
-uniform float brightness : hint_range(0,1.0);
-uniform float lines_size : hint_range(0,1.0);
-uniform float alpha : hint_range(0,1.0);
+uniform float brightness =0.11;
+uniform float lines_size =0.255;
+uniform float alpha =0.85;
 
 float rand(vec2 co){
     return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);
@@ -52,10 +58,23 @@ void fragment(){
 	// alpha value
 	COLOR.a = COLOR.a * alpha * ((random_num*0.2)+0.8) * alpha_factor;
 	
-	COLOR.rgb *= color.rgb;
-	
 	
 	
 	}
 	
-	
+	"
+
+[resource]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/dissolve_val = 1.0
+shader_param/displace_amt = 0.04
+shader_param/displace_size = 0.359
+shader_param/abberation_amt_x = 0.035
+shader_param/abberation_amt_y = 0.035
+shader_param/brightness = 0.11
+shader_param/lines_size = 0.255
+shader_param/alpha = 0.85
+shader_param/displace_image = ExtResource( 1 )
+shader_param/holo_lines = ExtResource( 2 )
+shader_param/dissolve_img = ExtResource( 2 )
