@@ -5,3 +5,6 @@ extends VBoxContainer
 func _ready():
 	$FadeIn.play("fade_in")
 	
+	
+
+	

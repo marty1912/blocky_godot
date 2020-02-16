@@ -10,13 +10,27 @@ const ball_scene = preload("res://gameObjects/Ball.tscn")
 const splash_scene = preload("res://gameObjects/Splash.tscn")
 
 var can_launch_ball = true
+var launch_mode = false
+var ball;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+    get_node("LaunchCollision").disabled = true
 
     pass # Replace with function body.
 
 func _physics_process(delta):
+
+    motion = normal_movement()
+
+    handle_collision(move_and_collide(motion*delta))
+
+
+
+
+
+
+func normal_movement():
     # motion
     if Input.is_action_pressed("ui_right"):
         motion.x += speed
@@ -33,10 +47,10 @@ func _physics_process(delta):
             motion.x = -MAXSPEED
         else:
             motion.x = MAXSPEED
+    return motion
 
-    var colission = move_and_collide(motion*delta)
 
-
+func handle_collision(colission):
     if colission != null :
         if colission.position != last_collision:
             var splash = splash_scene.instance()
@@ -46,13 +60,27 @@ func _physics_process(delta):
             get_tree().get_root().add_child(splash)
             last_collision = splash_pos
 
+
+
 func _input(event):
     if can_launch_ball:
         if event.is_action_pressed("ui_accept"):
-            var ball = ball_scene.instance()
-            var ball_position = get_node("Anchor").get_global_position() - Vector2(0,32)
-            ball.position.x = ball_position.x
-            ball.position.y = ball_position.y
-            get_tree().get_root().add_child(ball)
-            can_launch_ball = false
+            if launch_mode:
+                get_node("LaunchCollision").disabled = true
+                ball.launch_mode = false
+                ball.set_linear_velocity(Vector2(0,300))
+                can_launch_ball = false
+                launch_mode = false
+            else:
+                ball = ball_scene.instance()
+                launch_mode = true
+                var ball_position = get_node("Anchor").get_global_position() - Vector2(0,32)
+                ball.position.x = ball_position.x
+                ball.position.y = ball_position.y - 0.1
+                ball.linear_velocity = Vector2(0,0)
+                ball.launch_mode = true
+                get_tree().get_root().add_child(ball)
+                motion.x = 0
+                motion.y = 0
+                get_node("LaunchCollision").disabled = false
 

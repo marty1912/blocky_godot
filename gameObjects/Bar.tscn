@@ -19,7 +19,6 @@ __meta__ = {
 }
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -27,6 +26,12 @@ __meta__ = {
 
 [node name="Anchor" type="Position2D" parent="."]
 position = Vector2( 0, 16 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LaunchCollision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -32, -24, -40, -24, -40, 16, 40, 16, 40, -24, 32, -24, 32, -8, 32, 8, -32, 8 )
 __meta__ = {
 "_edit_lock_": true
 }
