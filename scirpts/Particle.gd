@@ -7,8 +7,6 @@ var destroy_threshhold = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    get_node("/root/World").add_brick()
-    add_to_group("bricks")
     randomize()
     $Sprite.get_material().set_shader_param("random_offset", rand_range(0.0,3.0))
     
@@ -24,12 +22,10 @@ func _process(delta):
         
         if(_time > destroy_threshhold):
             _is_dissolving = false
-            get_node("/root/World").remove_brick()
             queue_free()
 
 func _set_is_dead(value):
     is_dead = value
-    $Collision.queue_free()
     if (value):
         enter_death()
 

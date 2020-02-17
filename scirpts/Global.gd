@@ -36,10 +36,16 @@ func _deferred_goto_scene(path):
         get_tree().quit()
         return
     else:
-        print("in defered func. scene to load:" + path)
+        print("in defered func. scene to load:" + path + " current scene: " + str(current_scene.name))
         # It is now safe to remove the current scene
         current_scene.free()
     
+        var children_in_tree = get_tree().get_root().get_child_count()
+        for child in get_tree().get_root().get_children():
+            print("child: " + str(child))
+        
+            
+        print("children in tree after free:" + str(children_in_tree ))
         # Load the new scene.
         var s = ResourceLoader.load(path)
     

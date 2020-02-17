@@ -4,6 +4,7 @@
 [ext_resource path="res://gameObjects/Brick.tscn" type="PackedScene" id=2]
 
 [node name="World" instance=ExtResource( 1 )]
+next_level = "res://levels/level_1.tscn"
 
 [node name="Bricks" type="Node2D" parent="Level" index="0"]
 

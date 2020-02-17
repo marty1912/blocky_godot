@@ -16,7 +16,6 @@ var ball;
 # Called when the node enters the scene tree for the first time.
 func _ready():
     get_node("LaunchCollision").disabled = true
-
     pass # Replace with function body.
 
 func _physics_process(delta):
@@ -24,10 +23,6 @@ func _physics_process(delta):
     motion = normal_movement()
 
     handle_collision(move_and_collide(motion*delta))
-
-
-
-
 
 
 func normal_movement():
@@ -60,7 +55,18 @@ func handle_collision(colission):
             get_tree().get_root().add_child(splash)
             last_collision = splash_pos
 
-
+func activate_launch_mode():
+    ball = ball_scene.instance()
+    launch_mode = true
+    var ball_position = get_node("Anchor").get_global_position() - Vector2(0,32)
+    ball.position.x = ball_position.x
+    ball.position.y = ball_position.y - 0.1
+    ball.linear_velocity = Vector2(0,0)
+    ball.launch_mode = true
+    get_node("/root/World").add_child(ball)
+    motion.x = 0
+    motion.y = 0
+    get_node("LaunchCollision").disabled = false
 
 func _input(event):
     if can_launch_ball:
@@ -72,15 +78,6 @@ func _input(event):
                 can_launch_ball = false
                 launch_mode = false
             else:
-                ball = ball_scene.instance()
-                launch_mode = true
-                var ball_position = get_node("Anchor").get_global_position() - Vector2(0,32)
-                ball.position.x = ball_position.x
-                ball.position.y = ball_position.y - 0.1
-                ball.linear_velocity = Vector2(0,0)
-                ball.launch_mode = true
-                get_tree().get_root().add_child(ball)
-                motion.x = 0
-                motion.y = 0
-                get_node("LaunchCollision").disabled = false
+                activate_launch_mode()
+                
 

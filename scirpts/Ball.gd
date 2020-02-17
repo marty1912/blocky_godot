@@ -37,10 +37,10 @@ func _process(delta):
 
 
     if get_node("Anchor").get_global_position().y > get_viewport_rect().end.y:
+        print("(ball) leaving")
         get_node("/root/World").ball_leave()
         queue_free()
 
-    pass
 
 func set_launch_mode(value):
     print("launch mode)")
