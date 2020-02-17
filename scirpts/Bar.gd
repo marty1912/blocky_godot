@@ -13,6 +13,8 @@ var can_launch_ball = true
 var launch_mode = false
 var ball;
 
+var current_color = Global.BALL_COLOR.pink setget change_color_to
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     get_node("LaunchCollision").disabled = true
@@ -58,6 +60,7 @@ func handle_collision(colission):
 func activate_launch_mode():
     ball = ball_scene.instance()
     launch_mode = true
+    ball.change_color_to(current_color)
     var ball_position = get_node("Anchor").get_global_position() - Vector2(0,32)
     ball.position.x = ball_position.x
     ball.position.y = ball_position.y - 0.1
@@ -68,6 +71,18 @@ func activate_launch_mode():
     motion.y = 0
     get_node("LaunchCollision").disabled = false
 
+func change_color_to(color):
+    if color == Global.BALL_COLOR.pink:
+        set_collision_layer(1)
+        set_collision_mask(1) 
+        $Sprite.material.set_shader_param("color",Global.COLOR_PINK)
+        current_color = color
+    elif color == Global.BALL_COLOR.blue:
+        set_collision_layer(2)
+        set_collision_mask(2) 
+        $Sprite.material.set_shader_param("color",Global.COLOR_BLUE)
+        current_color = color
+        
 func _input(event):
     if can_launch_ball:
         if event.is_action_pressed("ui_accept"):

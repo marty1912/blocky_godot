@@ -11,6 +11,7 @@ const level_clear_scene = preload("res://scenes/LevelClearScreen.tscn")
 
 func _ready():
     $Base/Bar.activate_launch_mode()
+    set_score(Global.score)
     pass # Replace with function body.
     
 

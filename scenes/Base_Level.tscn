@@ -32,6 +32,8 @@ __meta__ = {
 position = Vector2( 512, 512 )
 
 [node name="Wall" type="StaticBody2D" parent="Base"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Collision" type="CollisionPolygon2D" parent="Base/Wall"]
 polygon = PoolVector2Array( 0, 608, 0, 0, 1024, 0, 1024, 608, 1088, 608, 1088, -32, -64, -32, -64, 608 )
@@ -50,9 +52,10 @@ __meta__ = {
 material = ExtResource( 6 )
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -64.0
-margin_right = 133.0
-margin_bottom = -22.0
+margin_left = 32.0
+margin_top = -80.0
+margin_right = 165.0
+margin_bottom = -38.0
 custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0.552941, 0.239216, 0.380392, 1 )
 custom_colors/font_outline_modulate = Color( 0.552941, 0.239216, 0.380392, 1 )

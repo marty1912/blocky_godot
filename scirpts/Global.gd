@@ -1,8 +1,15 @@
 extends Node
 
+enum BALL_COLOR{
+  pink,
+  blue
+}
+
 var current_scene = null
 var score = 0 setget set_score
 var lifes = 3 
+const COLOR_BLUE = Color("52c4e0")
+const COLOR_PINK = Color("874b6f")
 
 func _ready():
     print("loading global")

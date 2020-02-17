@@ -4,7 +4,7 @@ var _time = 1.0
 var _is_dissolving = false
 var is_dead = false setget _set_is_dead
 var destroy_threshhold = 2
-
+export (int) var score_value = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
     get_node("/root/World").add_brick()
@@ -29,8 +29,9 @@ func _process(delta):
 
 func _set_is_dead(value):
     is_dead = value
-    $Collision.queue_free()
     if (value):
+        get_node("/root/World").score += score_value
+        $Collision.queue_free()
         enter_death()
 
 func enter_death():
