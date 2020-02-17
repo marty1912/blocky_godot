@@ -36,7 +36,6 @@ position = Vector2( 432, 336 )
 texture = ExtResource( 2 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 112.0
 margin_top = 48.0
 margin_right = 944.0

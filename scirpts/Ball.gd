@@ -47,7 +47,7 @@ func set_launch_mode(value):
     launch_mode = value
     if value:
         self.bounce = 0.0
-        self.friction = 100.0
+        self.friction = 1.0
     else:
         self.bounce = 1.0
         self.friction = 0.0

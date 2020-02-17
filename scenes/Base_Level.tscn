@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scirpts/World.gd" type="Script" id=1]
 [ext_resource path="res://textures/Starfield.png" type="Texture" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://shaders/text.tres" type="Material" id=5]
 [ext_resource path="res://fonts/Racing_32.tres" type="DynamicFont" id=6]
 [ext_resource path="res://scirpts/Label.gd" type="Script" id=7]
-[ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GUIObjects/LifesHbox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=9]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -28,7 +29,6 @@ __meta__ = {
 position = Vector2( 512, 512 )
 
 [node name="Wall" type="StaticBody2D" parent="Base"]
-editor/display_folded = true
 
 [node name="Collision" type="CollisionPolygon2D" parent="Base/Wall"]
 polygon = PoolVector2Array( 0, 608, 0, 0, 1024, 0, 1024, 608, 1088, 608, 1088, -32, -64, -32, -64, 608 )
@@ -45,10 +45,10 @@ __meta__ = {
 
 [node name="Score" type="Label" parent="GUI"]
 material = ExtResource( 5 )
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 144.0
-margin_bottom = 58.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -42.0
+margin_right = 133.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.552941, 0.239216, 0.380392, 1 )
 custom_colors/font_outline_modulate = Color( 0.552941, 0.239216, 0.380392, 1 )
@@ -56,5 +56,7 @@ custom_colors/font_color_shadow = Color( 0.552941, 0.239216, 0.380392, 1 )
 text = "SCORE: 0"
 script = ExtResource( 7 )
 
-[node name="PauseScreen" parent="." instance=ExtResource( 8 )]
+[node name="LifesHbox" parent="GUI" instance=ExtResource( 8 )]
+
+[node name="PauseScreen" parent="." instance=ExtResource( 9 )]
 visible = false

@@ -7,4 +7,3 @@ scene_to_load = "unpause"
 
 [node name="ButtonText" parent="." index="0"]
 text = "CONTINUE"
-[connection signal="pressed" from="." to="." method="_on_StartButton_pressed"]

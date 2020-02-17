@@ -19,6 +19,10 @@ config/name="breakout"
 run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://scirpts/Global.gd"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

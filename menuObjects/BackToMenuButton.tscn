@@ -2,8 +2,8 @@
 
 [ext_resource path="res://menuObjects/MenuButton.tscn" type="PackedScene" id=1]
 
-[node name="QuitButton" instance=ExtResource( 1 )]
-scene_to_load = "quit"
+[node name="BackButton" instance=ExtResource( 1 )]
+scene_to_load = "res://scenes/TitleScreen.tscn"
 
 [node name="ButtonText" parent="." index="0"]
-text = "QUIT"
+text = "MAIN MENU"
