@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/StreetLight_Buzz_Fienup_002.wav-d0e652bc89d9cff025eec1d75ac1d268.sample"
+
+[deps]
+
+source_file="res://Audio/StreetLight_Buzz_Fienup_002.wav"
+dest_files=[ "res://.import/StreetLight_Buzz_Fienup_002.wav-d0e652bc89d9cff025eec1d75ac1d268.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

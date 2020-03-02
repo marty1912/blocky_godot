@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scirpts/World.gd" type="Script" id=1]
 [ext_resource path="res://gameObjects/cam.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scirpts/Label.gd" type="Script" id=8]
 [ext_resource path="res://GUIObjects/LifesHbox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/PauseScreen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gameObjects/AmbientSound.tscn" type="PackedScene" id=11]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -68,3 +69,5 @@ script = ExtResource( 8 )
 
 [node name="PauseScreen" parent="." instance=ExtResource( 10 )]
 visible = false
+
+[node name="AmbientSound" parent="." instance=ExtResource( 11 )]

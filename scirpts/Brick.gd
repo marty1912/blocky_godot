@@ -35,5 +35,6 @@ func _set_is_dead(value):
         enter_death()
 
 func enter_death():
-  _is_dissolving = true
+    $Player.play()
+    _is_dissolving = true
 

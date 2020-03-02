@@ -4,7 +4,7 @@ var motion = Vector2()
 var last_collision = Vector2()
 
 const MAXSPEED = 500
-const speed = 30
+const speed = 15
 const cutoff = 5
 const ball_scene = preload("res://gameObjects/Ball.tscn")
 const splash_scene = preload("res://gameObjects/Splash.tscn")
@@ -12,6 +12,9 @@ const splash_scene = preload("res://gameObjects/Splash.tscn")
 var can_launch_ball = true
 var launch_mode = false
 var ball;
+
+export (bool) var is_magnetic = false setget set_is_magnetic, is_magnetic
+
 
 var current_color = Global.BALL_COLOR.pink setget change_color_to
 
@@ -94,5 +97,10 @@ func _input(event):
                 launch_mode = false
             else:
                 activate_launch_mode()
-                
+          
+func is_magnetic():
+    return is_magnetic
+    
+func set_is_magnetic(value):
+       is_magnetic = value   
 

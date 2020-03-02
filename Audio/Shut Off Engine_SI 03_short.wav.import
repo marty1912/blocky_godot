@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Shut Off Engine_SI 03_short.wav-7a65410adab7bd20c7a99a5f4aa35d2b.sample"
+
+[deps]
+
+source_file="res://Audio/Shut Off Engine_SI 03_short.wav"
+dest_files=[ "res://.import/Shut Off Engine_SI 03_short.wav-7a65410adab7bd20c7a99a5f4aa35d2b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scirpts/Brick.gd" type="Script" id=1]
 [ext_resource path="res://shaders/HOLO.tres" type="Material" id=2]
 [ext_resource path="res://textures/Brick.png" type="Texture" id=3]
 [ext_resource path="res://gameObjects/brick_wave.gd" type="Script" id=4]
+[ext_resource path="res://Audio/HumBuzz-Buzz-03_short.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31, 15 )
@@ -25,4 +26,7 @@ shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
 [connection signal="item_rect_changed" from="Sprite" to="Sprite" method="calculate_aspect_ratio"]

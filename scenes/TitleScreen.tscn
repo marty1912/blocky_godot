@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scirpts/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://textures/Starfield.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://menuObjects/QuitButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://shaders/text.tres" type="Material" id=8]
 [ext_resource path="res://fonts/Racing_16.tres" type="DynamicFont" id=9]
+[ext_resource path="res://gameObjects/AmbientSound.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
@@ -103,3 +104,5 @@ created by marty"
 
 [node name="FadeIn" type="AnimationPlayer" parent="Menu"]
 anims/fade_in = SubResource( 1 )
+
+[node name="AmbientSound" parent="." instance=ExtResource( 10 )]

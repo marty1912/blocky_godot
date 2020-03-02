@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Audio/StreetLight_Buzz_Fienup_002.wav" type="AudioStream" id=1]
+[ext_resource path="res://scenes/AmbientSound.gd" type="Script" id=2]
+
+[node name="AmbientSound" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = -29.282
+autoplay = true
+script = ExtResource( 2 )
+[connection signal="finished" from="." to="." method="_on_AmbientSound_finished"]

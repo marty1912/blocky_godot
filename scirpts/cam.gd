@@ -16,3 +16,4 @@ func _process(delta):
     
 func shake():
     shake_amount = 100
+    $Player.play()

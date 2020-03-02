@@ -40,6 +40,8 @@ func _process(delta):
             splash.position.x = splash_pos.x
             splash.position.y = splash_pos.y
             get_tree().get_root().add_child(splash)
+            $Player.play()
+            
 
 
     if get_node("Anchor").get_global_position().y > get_viewport_rect().end.y:
