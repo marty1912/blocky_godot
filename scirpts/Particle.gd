@@ -5,7 +5,7 @@ var _is_dissolving = false
 var is_dead = false setget _set_is_dead
 var destroy_threshhold = 2
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
     randomize()
     $Sprite.get_material().set_shader_param("random_offset", rand_range(0.0,3.0))
@@ -29,6 +29,7 @@ func _set_is_dead(value):
     if (value):
         enter_death()
 
+# activates dissolving
 func enter_death():
   _is_dissolving = true
 

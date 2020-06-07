@@ -9,6 +9,7 @@ var n_bricks = 0
 const game_over_scene = preload("res://scenes/GameOverScreen.tscn")
 const level_clear_scene = preload("res://scenes/LevelClearScreen.tscn")
 
+# activates launch mode on our bar so we can launch the ball
 func _ready():
     $Base/Bar.activate_launch_mode()
     set_score(Global.score)
@@ -16,14 +17,16 @@ func _ready():
     
 
     
-    
+# setter for score member in global
+# sets score to var and gui    
 func set_score(value):
     score = 0
     Global.score = value
     score = Global.score
     get_node("GUI/Score").set_text("SCORE: "+str(score))
         
-
+# remove a brick (when its destroyed) 
+# checks with a counter if all bricks are gone
 func remove_brick():
     brick_mut.lock()
     n_bricks-=1
@@ -37,7 +40,7 @@ func remove_brick():
         add_child(level_clear)
         get_tree().paused = true
         
-    
+# add 1 to brick count
 func add_brick():
     brick_mut.lock()
     n_bricks+=1

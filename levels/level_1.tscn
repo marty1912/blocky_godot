@@ -6,6 +6,7 @@
 [ext_resource path="res://gameObjects/Brick_blue_pink.tscn" type="PackedScene" id=4]
 
 [node name="World" index="0" instance=ExtResource( 1 )]
+next_level = "res://scenes/FinishScreen.tscn"
 
 [node name="Bricks" type="Node2D" parent="Level" index="0"]
 
@@ -90,4 +91,4 @@ position = Vector2( 128, 112 )
 [node name="ColorChange" type="Node2D" parent="Level" index="1"]
 
 [node name="Brick" parent="Level/ColorChange" index="0" instance=ExtResource( 4 )]
-position = Vector2( 512, 304 )
+position = Vector2( 512, 48 )
