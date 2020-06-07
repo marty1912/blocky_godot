@@ -13,5 +13,11 @@ The game is very short but there is a special mechanic in level 2:
 if you shoot a color changing block (the one where the color changes all the time)
 your ball and paddle will change color and you can now only destroy bricks of that color.
 
+## Screenshots:
+
+![main menu](./screenshots/main_screen.png)
+![level 1](./screenshots/level0.png)
+![level 2](./screenshots/level1.png)
+![pause screen](./screenshots/paused.png)
 
 ## HAVE FUN!
