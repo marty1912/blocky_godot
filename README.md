@@ -8,7 +8,7 @@ This was done as a practice project to get used to godot engine.
 I also did a few shaders in this project. 
 Feel free to copy any code you want.
 
-Here you can download the stuff you need to try it on [windows](downloads/win/)  and on [linux](downloads/linux/).
+Here you can download the stuff you need to try it on [windows](downloads/win/)  and on [linux](downloads/linux/). You need both files (.exe and .pck) to play.
 
 The game is very short but there is a special mechanic in level 2: 
 if you shoot a color changing block (the one where the color changes all the time)
